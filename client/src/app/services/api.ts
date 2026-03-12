@@ -11,11 +11,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * פונקציה גנרית לביצוע כל הקריאות ל-Stored Procedures
-   * @param procedureName שם הפרוצדורה ב-SQL (למשל sp_Books_GetAll)
-   * @param parameters אובייקט עם הפרמטרים שהפרוצדורה צריכה
-   */
   execute(procedureName: string, parameters: any = {}): Observable<any> {
     const requestBody = {
       procedureName: procedureName,
@@ -24,4 +19,5 @@ export class ApiService {
 
     return this.http.post<any>(this.apiUrl, requestBody);
   }
+
 }
