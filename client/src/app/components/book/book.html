@@ -1,0 +1,13 @@
+<div class="book-card">
+  <div class="book-title">{{ book.Title }}</div>
+  <div class="author-name">מאת: {{ book.Author }}</div>
+  
+  <div class="status-badge" [ngClass]="book.StatusId === 1 ? 'available' : 'borrowed'">
+    {{ book.StatusId === 1 ? 'זמין' : 'מושאל' }}
+  </div>
+
+  <div class="book-actions">
+    <button class="button-group" (click)="viewDetails(book.BookId)">צפייה</button>
+    <button class="button-group" (click)="editBook(book.BookId)">עריכה</button>
+  </div>
+</div>

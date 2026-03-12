@@ -1,0 +1,32 @@
+/* Bottle Green Clean Design */
+:root {
+  --primary-color: #1B5E20;     /* Bottle green - dark */
+  --primary-light: #2E7D32;     /* Bottle green - medium */
+  --primary-lighter: #43A047;   /* Bottle green - light */
+  --accent-color: #A5D6A7;      /* Green accent - light */
+  --light-bg: #F1F5F3;          /* Clean light gray-green background */
+  --text-color: #2C3E2F;        /* Dark gray-green text */
+  --text-light: #7A8B7E;        /* Light gray-green text */
+  --white: #FFFFFF;
+  --border-radius: 6px;
+  --shadow: 0 2px 8px rgba(27, 94, 32, 0.08);
+  --shadow-hover: 0 4px 12px rgba(27, 94, 32, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Trebuchet MS', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  line-height: 1.6;
+}
+
+html {
+  background: var(--light-bg);
+}

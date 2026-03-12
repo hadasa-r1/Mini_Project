@@ -1,0 +1,61 @@
+/* App Container */
+:host {
+  display: block;
+  background: var(--light-bg);
+  min-height: 100vh;
+}
+
+header {
+  background: var(--primary-color);
+  box-shadow: var(--shadow-hover);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  color: var(--white);
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+main section h2 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+main hr {
+  border: none;
+  height: 1px;
+  background: var(--accent-color);
+  margin: 1rem 0;
+}
+
+router-outlet {
+  display: block;
+}
+
+footer {
+  background: var(--primary-color);
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
+}

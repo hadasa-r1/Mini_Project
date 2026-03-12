@@ -1,0 +1,20 @@
+<div class="details-container" *ngIf="book">
+  <h2>📖 פרטי הספר: {{ book.Title }}</h2>
+  
+  <div class="info-card">
+    <p><strong>סופר:</strong> {{ book.Author }}</p>
+    <p><strong>תיאור:</strong> {{ book.Description }}</p>
+    <p><strong>סטטוס:</strong> {{ book.StatusName }}</p>
+    <p><strong>תאריך הוספה:</strong> {{ book.CreatedAt | date:'dd/MM/yyyy' }}</p>
+  </div>
+
+  <div class="actions">
+    <button (click)="goBack()">חזרה 🔙</button>
+    <button (click)="router.navigate(['/edit', book.BookId])">עריכה ✏️</button>
+    <button *ngIf="book.StatusName === 'זמין'" (click)="lendBook()">השאלה 📤</button>
+  </div>
+</div>
+
+<div *ngIf="!book">
+  <p>טוען נתונים... ⏳</p>
+</div>

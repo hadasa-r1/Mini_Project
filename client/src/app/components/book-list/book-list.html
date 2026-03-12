@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>📚 ספריית הספרים שלי</h2>
+
+  <div class="actions">
+    <input type="text" [(ngModel)]="searchTerm" (input)="loadBooks()" placeholder="חפש לפי שם ספר או סופר...">
+    <button class="btn-add" (click)="addNew()">+ הוספת ספר חדש</button>
+  </div>
+
+  <div class="books-list">
+    <div class="books-grid">
+      <app-book *ngFor="let book of books; trackBy: trackByBookId" [book]="book"></app-book>
+    </div>
+  </div>
+</div>
