@@ -17,17 +17,11 @@
       <textarea formControlName="Description"></textarea>
     </div>
 
-    <!-- <div class="field">
-      <label>סטטוס:</label>
-      <select formControlName="StatusId">
-        <option [value]="1">זמין</option>
-        <option [value]="2">מושאל</option>
-      </select>
-    </div> -->
 
     <div class="buttons">
       <button type="submit" [disabled]="bookForm.invalid">שמור ✅</button>
       <button type="button" (click)="router.navigate(['/show'])">ביטול ❌</button>
     </div>
   </form>
+
 </div>
