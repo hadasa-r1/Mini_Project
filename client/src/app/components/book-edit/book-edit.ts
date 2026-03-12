@@ -20,17 +20,15 @@ export class BookEditComponent implements OnInit {
     private route: ActivatedRoute,
     public router: Router
   ) {
-    // בניית הטופס עם ולידציה 
     this.bookForm = this.fb.group({
       Title: ['', Validators.required],
       Author: ['', Validators.required],
       Description: [''],
-      StatusId: [1] // ברירת מחדל "זמין" כפי שמופיע ב-SQL שלך
+      StatusId: [1]
     });
   }
 
   ngOnInit(): void {
-    // בדיקה אם אנחנו במצב עריכה (לפי ה-ID בכתובת)
     this.bookId = Number(this.route.snapshot.paramMap.get('id'));
     if (this.bookId > 0) {
       this.loadBookDetails();
@@ -40,7 +38,7 @@ export class BookEditComponent implements OnInit {
   loadBookDetails(): void {
     this.apiService.execute('sp_Books_GetById', { Id: this.bookId }).subscribe(res => {
       if (res && res.length > 0) {
-        this.bookForm.patchValue(res[0]); // מילוי הטופס בנתונים הקיימים [cite: 117]
+        this.bookForm.patchValue(res[0]); 
       }
     });
   }
@@ -60,7 +58,6 @@ export class BookEditComponent implements OnInit {
         this.router.navigate(['/show']); 
       });
     } else {
-      // שליחה ל-API לנתיב של עריכה (מצפה ל-5 פרמטרים כולל ה-ID)
       this.apiService.execute('sp_Books_Update', { ...bookData, BookId: this.bookId }).subscribe(
         () => {
         alert('הנתונים נשמרו בהצלחה!');
@@ -68,4 +65,5 @@ export class BookEditComponent implements OnInit {
       });
     }
   }
+
 }
