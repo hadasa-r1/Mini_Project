@@ -14,10 +14,11 @@ export class App implements OnInit{
 
   
     ngOnInit(): void {
-    this.loadBooks(); // טעינה ראשונית של הספרים [cite: 110]
+    this.loadBooks(); 
   }
     loadBooks(): void {
       this.router.navigate(['/show']);
 
   }
 }
+
