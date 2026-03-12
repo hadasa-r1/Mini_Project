@@ -12,9 +12,8 @@ import {Book} from "../book/book";
   styleUrls: ['./book-list.css']
 })
 export class BookListComponent implements OnInit {
-  books: any[] = []; // רשימת הספרים שתגיע מה-DB
-  searchTerm: string = ''; // טקסט החיפוש
-
+  books: any[] = [];
+  searchTerm: string = '';
   constructor(private apiService: ApiService, private router: Router, private cdr: ChangeDetectorRef) { }
 
   trackByBookId(index: number, book: any): number {
@@ -22,7 +21,7 @@ export class BookListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadBooks(); // טעינה ראשונית של הספרים [cite: 110]
+    this.loadBooks(); 
   }
 
   loadBooks(): void {
@@ -31,13 +30,12 @@ export class BookListComponent implements OnInit {
       this.books = data;
       console.log('הנתונים שהגיעו:', data);
       
-      // 3. עדכון ידני של התצוגה
       this.cdr.detectChanges(); 
     });
   }
 
-  // ניווט למסך הוספה [cite: 112]
   addNew(): void {
     this.router.navigate(['/edit', 0]);
   }
+
 }
