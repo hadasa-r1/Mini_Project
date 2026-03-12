@@ -12,8 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./book-details.css']
 })
 export class BookDetailsComponent implements OnInit {
-  book: any; // אובייקט שיכיל את נתוני הספר
-
+  book: any; 
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
@@ -22,16 +21,14 @@ export class BookDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // שליפת ה-ID מכתובת ה-URL
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.loadBook(id);
   }
 
   loadBook(id: number): void {
-    // הרצת הפרוצדורה לקבלת פרטי הספר
     this.apiService.execute('sp_Books_GetById', { Id: id }).subscribe(res => {
       if (res && res.length > 0) {
-        this.book = res[0]; // השמת התוצאה הראשונה שחזרה מה-DB
+        this.book = res[0]; 
       }
       this.cdr.detectChanges(); 
 
@@ -39,16 +36,16 @@ export class BookDetailsComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/show']); // חזרה למסך הרשימה
+    this.router.navigate(['/show']); 
   }
 
   lendBook(): void {
-    // כאן תוכל להוסיף לוגיקה להלוואת הספר, למשל קריאה לפרוצדורה שמעדכנת את הסטטוס שלו ל-"השאלת"
-    const procName = 'sp_Books_LoanBook'; // שם הפרוצדורה ב-DB
+    const procName = 'sp_Books_LoanBook'; 
     const params = { BookId: this.book.BookId, MemberId: 1 };
     this.apiService.execute(procName, params).subscribe(() => {
       alert('הספר הלווה בהצלחה!');
       this.router.navigate(['/show']);
     });
   }
+
 }
