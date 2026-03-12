@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Text.Json; // חשוב להוסיף את זה!
+using System.Text.Json; 
 using WEB_API.Models;
 
 [ApiController]
@@ -29,7 +29,6 @@ public class ExecController : ControllerBase
                 {
                     object value = param.Value;
 
-                    // טיפול ב-JsonElement כדי למנוע את השגיאה שראינו
                     if (value is JsonElement element)
                     {
                         value = element.ValueKind switch
@@ -53,7 +52,6 @@ public class ExecController : ControllerBase
                 var table = new DataTable();
                 table.Load(reader);
 
-                // הפיכת ה-DataTable לרשימה של אובייקטים פשוטים
                 var rows = new List<Dictionary<string, object>>();
                 foreach (DataRow row in table.Rows)
                 {
@@ -65,8 +63,9 @@ public class ExecController : ControllerBase
                     rows.Add(dict);
                 }
 
-                return Ok(rows); // עכשיו זה יחזור כ-JSON תקין ב-Swagger! 🚀
+                return Ok(rows); 
             }
         }
     }
+
 }
